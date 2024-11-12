@@ -26,8 +26,8 @@ public class ProductController {
     }
 
     @PostMapping("/products")
-    public ResponseEntity<Product> insertProduct() {
-        Product product = new Product("새 상품", 1000, 10);
+    public ResponseEntity<Product> insertProduct(@RequestBody ProductReq request) {
+        Product product = request.toEntity();
         productMapper.insert(product);
         return ResponseEntity.ok(product);
     }
