@@ -6,8 +6,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
@@ -27,6 +29,14 @@ public class ProductController {
     public ResponseEntity<Product> insertProduct() {
         Product product = new Product("새 상품", 1000, 10);
         productMapper.insert(product);
+        return ResponseEntity.ok(product);
+    }
+
+    @PatchMapping("/products/{id}")
+    public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody ProductReq request) {
+        Product product = productMapper.getProduct(id);
+        product.update(request.toEntity());
+        productMapper.update(product);
         return ResponseEntity.ok(product);
     }
 }
