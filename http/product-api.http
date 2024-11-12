@@ -1,5 +1,12 @@
 ### 상품 생성
 POST http://localhost:8080/products
+Content-Type: application/json
+
+{
+  "name": "새 상품",
+  "price": 1000,
+  "stockQuantity": 10
+}
 
 ### 상품 단건 조회
 GET http://localhost:8080/products/2
