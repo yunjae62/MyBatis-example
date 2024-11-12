@@ -17,4 +17,10 @@ public class Product {
         this.price = price;
         this.stockQuantity = stockQuantity;
     }
+
+    public void update(Product product) {
+        this.name = product.name;
+        this.price = product.price;
+        this.stockQuantity = product.stockQuantity;
+    }
 }
