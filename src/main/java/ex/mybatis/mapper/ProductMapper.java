@@ -1,6 +1,7 @@
 package ex.mybatis.mapper;
 
 import ex.mybatis.domain.Product;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
@@ -20,4 +21,7 @@ public interface ProductMapper {
 
     @Update("UPDATE PRODUCTS SET name = #{name}, price = #{price}, stock_quantity = #{stockQuantity} WHERE id = #{id}")
     void update(Product product);
+
+    @Delete("DELETE FROM PRODUCTS WHERE id = #{id}")
+    void delete(@Param("id") Long id);
 }
