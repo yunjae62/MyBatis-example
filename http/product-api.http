@@ -1,0 +1,5 @@
+### 상품 생성
+POST http://localhost:8080/products
+
+### 상품 단건 조회
+GET http://localhost:8080/products/2
