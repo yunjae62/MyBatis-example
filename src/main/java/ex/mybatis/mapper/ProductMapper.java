@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface ProductMapper {
@@ -16,4 +17,7 @@ public interface ProductMapper {
     @Insert("INSERT INTO PRODUCTS (name, price, stock_quantity) VALUES (#{name}, #{price}, #{stockQuantity})")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     void insert(Product product);
+
+    @Update("UPDATE PRODUCTS SET name = #{name}, price = #{price}, stock_quantity = #{stockQuantity} WHERE id = #{id}")
+    void update(Product product);
 }
