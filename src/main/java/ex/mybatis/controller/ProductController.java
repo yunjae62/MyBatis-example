@@ -2,6 +2,7 @@ package ex.mybatis.controller;
 
 import ex.mybatis.domain.Product;
 import ex.mybatis.mapper.ProductMapper;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +27,12 @@ public class ProductController {
     public ResponseEntity<Product> getProduct(@PathVariable Long id) {
         Product product = productMapper.getProduct(id);
         return ResponseEntity.ok(product);
+    }
+
+    @GetMapping("")
+    public ResponseEntity<List<Product>> getProducts() {
+        List<Product> products = productMapper.getProducts();
+        return ResponseEntity.ok(products);
     }
 
     @PostMapping("")
