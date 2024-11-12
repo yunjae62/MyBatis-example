@@ -3,3 +3,13 @@ POST http://localhost:8080/products
 
 ### 상품 단건 조회
 GET http://localhost:8080/products/2
+
+### 상품 수정
+PATCH http://localhost:8080/products/2
+Content-Type: application/json
+
+{
+  "name": "상품 수정",
+  "price": 2000,
+  "stockQuantity": 20
+}
