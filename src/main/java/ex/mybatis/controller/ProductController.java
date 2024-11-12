@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
@@ -19,6 +20,13 @@ public class ProductController {
     @GetMapping("/products/{id}")
     public ResponseEntity<Product> getProduct(@PathVariable Long id) {
         Product product = productMapper.getProduct(id);
+        return ResponseEntity.ok(product);
+    }
+
+    @PostMapping("/products")
+    public ResponseEntity<Product> insertProduct() {
+        Product product = new Product("새 상품", 1000, 10);
+        productMapper.insert(product);
         return ResponseEntity.ok(product);
     }
 }
