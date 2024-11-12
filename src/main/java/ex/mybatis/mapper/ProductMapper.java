@@ -2,6 +2,7 @@ package ex.mybatis.mapper;
 
 import ex.mybatis.domain.Product;
 import java.util.List;
+import java.util.Optional;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -14,7 +15,7 @@ import org.apache.ibatis.annotations.Update;
 public interface ProductMapper {
 
     @Select("SELECT * FROM PRODUCTS WHERE id = #{id}")
-    Product getProduct(@Param("id") Long id);
+    Optional<Product> getProduct(@Param("id") Long id);
 
     @Select("SELECT * FROM PRODUCTS")
     List<Product> getProducts();
