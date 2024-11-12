@@ -1,6 +1,7 @@
 spring:
   application:
     name: mybatis-service
+
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:testdb
@@ -8,9 +9,15 @@ spring:
     password:
     hikari:
       maximum-pool-size: 80
+
   sql:
     init:
       mode: embedded
+
   h2:
     console:
       enabled: true
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true # MyBatis는 기본적으로 카멜케이스를 사용하지 않기 때문에 이를 설정해줘야 한다.
