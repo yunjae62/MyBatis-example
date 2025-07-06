@@ -21,3 +21,10 @@ spring:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true # MyBatis는 기본적으로 카멜케이스를 사용하지 않기 때문에 이를 설정해줘야 한다.
+  type-aliases-package: ex.mybatis
+
+logging:
+  level:
+    ex:
+      mybatis:
+        repository: trace
